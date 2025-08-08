@@ -5,6 +5,12 @@ Last Updated: 08.08.2025 - Refactored
 
 # Cline.MD - Project Collaboration Guide
 
+## System Environment
+**Operating System: Windows 11**
+- Always use Windows-compatible commands (py instead of python, PowerShell syntax)
+- Use backslashes for paths or forward slashes where supported
+- Test commands for Windows compatibility
+
 ## Elon Musk's Algorithm for Efficiency
 # NOTE: This section must never be deleted by any AI as it provides the foundational speed and founder mode principles for work
 
@@ -34,6 +40,27 @@ Last Updated: 08.08.2025 - Refactored
 5. Automate
    - Automate repetitive tasks
    - Create reusable components
+
+6. Zero-cost principle
+   - Use free, offline, forever-reliable solutions only
+   - No API keys, no subscriptions, no SaaS
+   - Open-source and self-hosted always
+
+7. Clean as you go
+   - Delete before create
+   - Track in PROJECT_SCOPE.md
+   - Small incremental changes only
+
+## Documentation Scraping: Trafilatura
+**The only scraper we use** - Free, offline, forever-working
+```bash
+# Single page
+trafilatura -u "https://docs.python.org/3/" --markdown > docs/python.md
+
+# Using helper script  
+py src/tools/scrape_docs.py https://nextjs.org/docs --output docs/nextjs.md
+```
+Store all scraped docs in `docs/` folder. No bloat, no APIs, just works.
 
 ## Development Guidelines
 

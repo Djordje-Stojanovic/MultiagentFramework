@@ -1,0 +1,2 @@
+https://trafilatura.readthedocs.io/en/stable/
+https://trafilatura.readthedocs.io/en/latest/

@@ -1,0 +1,18 @@
+Gemini and other generative AI models process input and output at a granularity
+called a token.
+
+About tokens
+
+Tokens can be single characters like z or whole words like cat. Long words
+are broken up into several tokens. The set of all tokens used by the model is
+called the vocabulary, and the process of splitting text into tokens is called
+tokenization.
+
+For Gemini models, a token is equivalent to about 4 characters.
+100 tokens is equal to about 60-80 English words.
+
+When billing is enabled, the cost of a call to the Gemini API is
+determined in part by the number of input and output tokens, so knowing how to
+count tokens can be helpful.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-08-07 UTC."],[],[]]
