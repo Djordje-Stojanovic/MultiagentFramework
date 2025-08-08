@@ -16,10 +16,15 @@ load_dotenv()
 # Initialize FastAPI
 app = FastAPI(title="MultiAgent Framework - Hello World")
 
-# Initialize Pydantic AI agent with Gemini
-agent = Agent(
-    model=GeminiModel('gemini-2.0-flash-exp'),  # Using Flash for simple tasks
-    system_prompt="You are a helpful assistant. Keep responses brief and friendly."
+# Initialize Pydantic AI agents with Gemini
+agent1 = Agent(
+    model=GeminiModel('gemini-2.0-flash-exp'),
+    system_prompt="You are Agent 1. Your job is to initiate a discussion with Agent 2 based on the user's topic."
+)
+
+agent2 = Agent(
+    model=GeminiModel('gemini-2.0-flash-exp'),
+    system_prompt="You are Agent 2. Your job is to respond to Agent 1's discussion point with a counter-argument or a different perspective."
 )
 
 @app.get("/", response_class=HTMLResponse)
@@ -72,8 +77,14 @@ async def home():
                 <div><strong>Top-K:</strong> 40 (default - top-k sampling)</div>
                 <div><strong>Max Tokens:</strong> 8192 (default output limit)</div>
             </div>
-            <div style="margin-top: 10px;">
-                <strong>System Instruction:</strong> "You are a helpful assistant. Keep responses brief and friendly."
+            <div style="margin-top: 15px;">
+                <h4>🤖 Agent Roles:</h4>
+                <div style="background: #f0f8ff; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                    <strong>Agent 1:</strong> "You are Agent 1. Your job is to initiate a discussion with Agent 2 based on the user's topic."
+                </div>
+                <div style="background: #f0fff0; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                    <strong>Agent 2:</strong> "You are Agent 2. Your job is to respond to Agent 1's discussion point with a counter-argument or a different perspective."
+                </div>
             </div>
             <div style="margin-top: 10px; font-size: 12px; color: #666;">
                 <strong>Available Parameters:</strong> temperature (0-2), topP (0-1), topK (1-40), max_output_tokens, stop_sequences, system_instruction
@@ -89,8 +100,47 @@ async def home():
         </div>
         
         <div id="response" class="response" style="display:none;"></div>
+
+        <!-- Two-Agent Conversation -->
+        <div style="margin: 40px 0;">
+            <h2>Two-Agent Conversation</h2>
+            <input type="text" id="topicInput" placeholder="Enter a topic for the agents to discuss..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            <button onclick="startDebate()" style="margin-top: 10px;">Start Debate</button>
+            <div id="debateResponse" class="response" style="display:none; margin-top: 20px;"></div>
+        </div>
         
         <script>
+            async function startDebate() {
+                const topicInput = document.getElementById('topicInput');
+                const topic = topicInput.value.trim();
+
+                if (!topic) {
+                    alert('Please enter a topic for the debate!');
+                    return;
+                }
+
+                const debateResponseDiv = document.getElementById('debateResponse');
+                debateResponseDiv.style.display = 'block';
+                debateResponseDiv.innerHTML = 'Agents are discussing...';
+
+                try {
+                    const response = await fetch('/debate', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ topic: topic })
+                    });
+
+                    const data = await response.json();
+                    let html = `<strong>Topic:</strong> "${topic}"<br><br>`;
+                    html += `<strong>Agent 1:</strong> ${data.agent1_initial_statement}<br><br>`;
+                    html += `<strong>Agent 2:</strong> ${data.agent2_response}<br><br>`;
+                    html += `<strong>Agent 1 Final Reply:</strong> ${data.agent1_final_reply}`;
+                    debateResponseDiv.innerHTML = html;
+                } catch (error) {
+                    debateResponseDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+                }
+            }
+
             async function testAgent() {
                 const responseDiv = document.getElementById('response');
                 responseDiv.style.display = 'block';
@@ -140,7 +190,7 @@ async def home():
 async def hello():
     """Test endpoint for our agent"""
     try:
-        result = await agent.run("Give me a one-line greeting!")
+        result = await agent1.run("Give me a one-line greeting!")
         # Extract the output from the AgentRunResult
         return {"message": result.output}
     except Exception as e:
@@ -154,8 +204,33 @@ async def custom_prompt(prompt_data: dict):
         if not user_prompt.strip():
             return {"message": "Please provide a prompt!"}
         
-        result = await agent.run(user_prompt)
+        result = await agent1.run(user_prompt)
         return {"message": result.output}
+    except Exception as e:
+        return {"message": f"Error: {str(e)}"}
+
+@app.post("/debate")
+async def debate(prompt_data: dict):
+    """Endpoint for two-agent debate"""
+    try:
+        topic = prompt_data.get("topic", "")
+        if not topic.strip():
+            return {"message": "Please provide a topic!"}
+
+        # Agent 1 initiates
+        agent1_statement = await agent1.run(f"Start a discussion about: {topic}")
+        
+        # Agent 2 responds
+        agent2_response = await agent2.run(f"Respond to this statement: {agent1_statement.output}")
+
+        # Agent 1 gives final reply
+        agent1_final_reply = await agent1.run(f"Give a final reply to this response: {agent2_response.output}")
+
+        return {
+            "agent1_initial_statement": agent1_statement.output,
+            "agent2_response": agent2_response.output,
+            "agent1_final_reply": agent1_final_reply.output
+        }
     except Exception as e:
         return {"message": f"Error: {str(e)}"}
 

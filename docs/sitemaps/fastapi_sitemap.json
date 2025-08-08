@@ -1,0 +1,137 @@
+{
+  "entries": [
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/first-steps/",
+      "filename": "fastapiFirstStepsHelloWorld.txt",
+      "description": "Introduction to FastAPI with a simple 'Hello World' example, running the development server, and understanding basic path operations and API documentation",
+      "keywords": ["FastAPI", "hello world", "first steps", "path operations", "API documentation", "Swagger UI", "ReDoc", "OpenAPI"],
+      "topics": ["getting started", "web development", "API basics"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/",
+      "filename": "fastapiOverviewAndKeyFeatures.txt",
+      "description": "Overview of FastAPI, a modern, fast web framework for building APIs with Python, highlighting its performance, ease of use, automatic documentation, and standards-based approach",
+      "keywords": ["FastAPI", "web framework", "Python", "API", "performance", "OpenAPI", "JSON Schema", "Starlette", "Pydantic"],
+      "topics": ["web development", "API design", "Python frameworks"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/static-files/",
+      "filename": "fastapiStaticFilesServing.txt",
+      "description": "Serving static files in FastAPI using `StaticFiles` to mount a directory, explaining the concept of 'mounting' applications",
+      "keywords": ["StaticFiles", "static files", "serving files", "mounting", "Starlette"],
+      "topics": ["web development", "file serving", "application structure"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/query-params/",
+      "filename": "fastapiQueryParametersHandling.txt",
+      "description": "Handling query parameters in FastAPI, including optional parameters, default values, type conversion (e.g., bool), and combining with path parameters",
+      "keywords": ["query parameters", "optional parameters", "default values", "type conversion", "path parameters"],
+      "topics": ["API routing", "request handling", "web development"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/deployment/",
+      "filename": "fastapiDeploymentStrategies.txt",
+      "description": "Overview of deployment strategies for FastAPI applications, covering concepts for making web APIs available to users in production environments",
+      "keywords": ["deployment", "deployment strategies", "production", "server", "cloud service"],
+      "topics": ["deployment", "web application deployment", "production environment"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/security/",
+      "filename": "fastapiSecurityAuthenticationAuthorization.txt",
+      "description": "Introduction to security, authentication, and authorization in FastAPI, covering OAuth2, OpenID Connect, OpenAPI security schemes (apiKey, http, oauth2, openIdConnect), and FastAPI's security utilities",
+      "keywords": ["security", "authentication", "authorization", "OAuth2", "OpenID Connect", "OpenAPI", "apiKey", "http", "bearer", "password flow"],
+      "topics": ["API security", "authentication methods", "authorization flows"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/response-model/",
+      "filename": "fastapiResponseModelAndDataFiltering.txt",
+      "description": "Declaring response models in FastAPI using return type annotations or `response_model` parameter for data validation, JSON Schema generation, and output data filtering, including handling sensitive data and inheritance",
+      "keywords": ["response model", "return type", "data filtering", "Pydantic models", "JSON Schema", "security", "response_model_exclude_unset"],
+      "topics": ["API response", "data serialization", "security best practices"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/",
+      "filename": "fastapiTutorialUserGuideIntroduction.txt",
+      "description": "Introduction to the FastAPI Tutorial - User Guide, providing a step-by-step walkthrough of most features, designed for learning and future reference",
+      "keywords": ["FastAPI tutorial", "user guide", "getting started", "features", "code examples"],
+      "topics": ["learning FastAPI", "web development tutorial", "API development"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/advanced/middleware/",
+      "filename": "fastapiAdvancedMiddlewareUsage.txt",
+      "description": "Using advanced ASGI middlewares in FastAPI, including `HTTPSRedirectMiddleware`, `TrustedHostMiddleware`, and `GZipMiddleware`, and integrating third-party ASGI middlewares",
+      "keywords": ["middleware", "ASGI", "HTTPSRedirectMiddleware", "TrustedHostMiddleware", "GZipMiddleware", "Starlette"],
+      "topics": ["web development", "middleware", "security", "performance optimization"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/handling-errors/",
+      "filename": "fastapiErrorHandlingAndExceptions.txt",
+      "description": "Handling HTTP errors and exceptions in FastAPI using `HTTPException`, custom exception handlers, and overriding default handlers for request validation errors",
+      "keywords": ["error handling", "HTTPException", "exceptions", "exception handlers", "RequestValidationError", "HTTP status codes"],
+      "topics": ["API error management", "exception handling", "HTTP responses"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/advanced/websockets/",
+      "filename": "fastapiWebSocketsAndRealtimeCommunication.txt",
+      "description": "Implementing WebSockets in FastAPI for real-time communication, including handling messages, disconnections, multiple clients, and integrating with dependencies",
+      "keywords": ["WebSockets", "real-time communication", "WebSocket", "receive_text", "send_text", "WebSocketDisconnect", "Depends"],
+      "topics": ["real-time applications", "web development", "API communication"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/reference/fastapi/",
+      "filename": "fastapiApplicationClassReference.txt",
+      "description": "Reference for the FastAPI class, detailing its parameters (debug, routes, title, description, version, openapi_url, etc.), attributes (openapi_version, webhooks, state, dependency_overrides), and methods (get, post, put, delete, include_router, websocket, on_event, middleware, exception_handler)",
+      "keywords": ["FastAPI class", "application reference", "parameters", "attributes", "methods", "path operations", "middleware", "exception handlers", "OpenAPI"],
+      "topics": ["API framework", "application setup", "configuration"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/cors/",
+      "filename": "fastapiCORSCrossOriginResourceSharing.txt",
+      "description": "Configuring Cross-Origin Resource Sharing (CORS) in FastAPI using `CORSMiddleware` to manage allowed origins, methods, headers, and credentials for cross-origin requests",
+      "keywords": ["CORS", "Cross-Origin Resource Sharing", "CORSMiddleware", "origins", "methods", "headers", "credentials", "preflight requests"],
+      "topics": ["web security", "API security", "middleware"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/features/",
+      "filename": "fastapiFeaturesOverview.txt",
+      "description": "Overview of FastAPI's key features, including its foundation on open standards (OpenAPI, JSON Schema), automatic documentation (Swagger UI, ReDoc), modern Python type hints, editor support, data validation (Pydantic), security, dependency injection, and Starlette integration",
+      "keywords": ["FastAPI features", "OpenAPI", "JSON Schema", "Swagger UI", "ReDoc", "Python type hints", "Pydantic", "validation", "security", "dependency injection", "Starlette"],
+      "topics": ["API development", "web framework features", "developer experience"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/testing/",
+      "filename": "fastapiTestingWithTestClientAndPytest.txt",
+      "description": "Testing FastAPI applications using `TestClient` (based on HTTPX) and `pytest`, including examples for GET, POST, and error handling, and best practices for structuring tests",
+      "keywords": ["testing", "TestClient", "pytest", "HTTPX", "unit testing", "integration testing"],
+      "topics": ["API testing", "software testing", "development practices"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/async/",
+      "filename": "fastapiConcurrencyAndAsyncAwait.txt",
+      "description": "Understanding concurrency and `async`/`await` in FastAPI, including asynchronous code, coroutines, and how FastAPI handles `def` vs `async def` for optimal performance in I/O-bound and CPU-bound operations",
+      "keywords": ["concurrency", "async", "await", "asynchronous code", "coroutines", "parallelism", "I/O-bound", "CPU-bound"],
+      "topics": ["asynchronous programming", "performance optimization", "Python concurrency"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/body/",
+      "filename": "fastapiRequestBodyWithPydanticModels.txt",
+      "description": "Declaring request bodies in FastAPI using Pydantic models, including required/optional fields, automatic data validation, JSON Schema generation, editor support, and combining with path and query parameters",
+      "keywords": ["request body", "Pydantic models", "BaseModel", "JSON Schema", "data validation", "path parameters", "query parameters"],
+      "topics": ["API request handling", "data modeling", "web development"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/path-params/",
+      "filename": "fastapiPathParametersAndEnums.txt",
+      "description": "Declaring path parameters in FastAPI with type annotations for automatic data conversion, validation, and documentation, including order matters and predefined values using Python `Enum`",
+      "keywords": ["path parameters", "type annotations", "data conversion", "data validation", "documentation", "Enum", "path convertor"],
+      "topics": ["API routing", "request handling", "web development"]
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/dependencies/",
+      "filename": "fastapiDependencyInjectionSystem.txt",
+      "description": "Implementing dependency injection in FastAPI for shared logic, database connections, security, and authentication, using `Depends` with functions and `Annotated` for reusable dependencies",
+      "keywords": ["dependency injection", "Depends", "dependencies", "shared logic", "database connections", "security", "authentication", "Annotated"],
+      "topics": ["API design", "code organization", "reusability"]
+    }
+  ]
+}

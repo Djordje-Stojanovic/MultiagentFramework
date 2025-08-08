@@ -1,0 +1,144 @@
+{
+  "entries": [
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/function-calling",
+      "filename": "geminiFunctionCallingOverview.txt",
+      "description": "Complete guide for connecting Gemini models to external tools and APIs, including parallel and compositional function calling",
+      "keywords": ["function calling", "tools", "APIs", "parallel", "compositional", "MCP", "automatic"],
+      "topics": ["external tools", "API integration", "function declarations", "tool use"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/google-search",
+      "filename": "geminiGoogleSearchGrounding.txt",
+      "description": "Grounding Gemini models with real-time web content using Google Search for factual accuracy and citations",
+      "keywords": ["Google Search", "grounding", "real-time information", "citations", "factual accuracy"],
+      "topics": ["information retrieval", "web search", "model grounding"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+      "filename": "geminiPromptDesignStrategies.txt",
+      "description": "Guide to designing effective prompts for Gemini AI models, covering clear instructions, constraints, response formats, and few-shot examples",
+      "keywords": ["prompt design", "prompt engineering", "instructions", "constraints", "few-shot", "zero-shot", "parameters"],
+      "topics": ["prompting", "AI interaction", "model behavior"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/image-understanding",
+      "filename": "geminiImageUnderstandingAndProcessing.txt",
+      "description": "Guide to passing images to Gemini models for image processing and computer vision tasks, including object detection and segmentation",
+      "keywords": ["image understanding", "image processing", "computer vision", "object detection", "segmentation", "multimodal"],
+      "topics": ["image input", "visual analysis", "multimodal prompting"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/caching",
+      "filename": "geminiAPICachingMechanisms.txt",
+      "description": "Overview of implicit and explicit caching mechanisms in Gemini API for optimizing costs and performance by reusing input tokens",
+      "keywords": ["caching", "implicit caching", "explicit caching", "cost savings", "token management"],
+      "topics": ["API optimization", "performance", "cost management"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/embeddings",
+      "filename": "geminiTextEmbeddingsAndVectorDatabases.txt",
+      "description": "Guide to generating text embeddings with Gemini models for NLP tasks like semantic search, classification, and RAG, and storing them in vector databases",
+      "keywords": ["embeddings", "text embeddings", "vector databases", "NLP", "semantic search", "RAG", "classification", "clustering"],
+      "topics": ["natural language processing", "data representation", "information retrieval"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/safety-settings",
+      "filename": "geminiSafetySettingsAndContentFiltering.txt",
+      "description": "Adjusting safety settings and content filtering in Gemini API for controlling acceptable content across harassment, hate speech, sexually explicit, dangerous, and civic integrity categories",
+      "keywords": ["safety settings", "content filtering", "harm categories", "harassment", "hate speech", "sexually explicit", "dangerous", "civic integrity"],
+      "topics": ["AI safety", "content moderation", "API configuration"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/document-processing",
+      "filename": "geminiDocumentProcessingPDFUnderstanding.txt",
+      "description": "Processing PDF documents with Gemini models for content analysis, information extraction, summarization, and transcription using native vision",
+      "keywords": ["document processing", "PDF", "document understanding", "content analysis", "information extraction", "summarization", "transcription"],
+      "topics": ["document AI", "multimodal input", "PDF processing"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/audio",
+      "filename": "geminiAudioUnderstandingAndTranscription.txt",
+      "description": "Analyzing and understanding audio input with Gemini models for tasks like summarization, transcription, and specific segment analysis",
+      "keywords": ["audio understanding", "audio processing", "transcription", "multimodal"],
+      "topics": ["audio input", "speech-to-text", "multimodal prompting"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/structured-output",
+      "filename": "geminiStructuredOutputJSONandEnums.txt",
+      "description": "Configuring Gemini models for structured output in JSON or enum formats for precise information extraction and standardization",
+      "keywords": ["structured output", "JSON", "enums", "schema", "responseSchema", "information extraction"],
+      "topics": ["output formatting", "data extraction", "API configuration"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs",
+      "filename": "geminiAPIOverviewAndQuickstart.txt",
+      "description": "Overview of the Gemini Developer API, including how to get an API key and make your first API request, and explore long context and structured outputs",
+      "keywords": ["Gemini API", "quickstart", "API key", "first request", "long context", "structured output"],
+      "topics": ["API introduction", "getting started", "model capabilities"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/quickstart",
+      "filename": "geminiQuickstartFirstAPIRequest.txt",
+      "description": "Quickstart guide for installing Gemini SDKs (Python, JavaScript, Go, Java, Apps Script) and making your first API request with code examples",
+      "keywords": ["quickstart", "SDK installation", "API request", "Gemini API key", "generateContent"],
+      "topics": ["getting started", "API setup", "code examples"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/code-execution",
+      "filename": "geminiCodeExecutionToolAndPython.txt",
+      "description": "Enabling and using the code execution tool in Gemini API for generating and running Python code, including I/O and chat integration",
+      "keywords": ["code execution", "Python", "tool", "code-based reasoning", "I/O", "chat integration"],
+      "topics": ["code generation", "tool use", "problem solving"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/thinking",
+      "filename": "geminiThinkingProcessAndBudgets.txt",
+      "description": "Understanding and configuring Gemini models' internal thinking process and thinking budgets for enhanced reasoning and multi-step planning in complex tasks",
+      "keywords": ["thinking process", "thinking budget", "reasoning", "multi-step planning", "thought summaries", "thought signatures"],
+      "topics": ["AI reasoning", "model configuration", "complex problem solving"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/text-generation",
+      "filename": "geminiTextGenerationAndMultimodalInput.txt",
+      "description": "Generating text output from various inputs (text, images, video, audio) using Gemini models, including system instructions and streaming responses",
+      "keywords": ["text generation", "multimodal input", "system instructions", "streaming responses", "chat", "prompting tips"],
+      "topics": ["content generation", "multimodal prompting", "API configuration"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/tokens",
+      "filename": "geminiTokenCountingAndBilling.txt",
+      "description": "Understanding tokens in Gemini models, tokenization, and how token counts impact billing for API calls",
+      "keywords": ["tokens", "tokenization", "token counting", "billing", "cost"],
+      "topics": ["API pricing", "resource management", "model basics"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/long-context",
+      "filename": "geminiLongContextWindowOverview.txt",
+      "description": "Overview of Gemini models' large context windows (1M+ tokens) for processing long-form text, video, and audio, and optimizing usage with context caching",
+      "keywords": ["long context", "context window", "1M tokens", "multimodal", "text", "video", "audio", "context caching"],
+      "topics": ["model capabilities", "context management", "multimodal input"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/api-key",
+      "filename": "geminiAPIKeyManagementAndSecurity.txt",
+      "description": "Managing Gemini API keys, including setting as environment variables, explicit provision, and security best practices to prevent compromise",
+      "keywords": ["API key", "security", "environment variable", "explicit key", "server-side calls", "ephemeral tokens"],
+      "topics": ["authentication", "security", "API access"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/models",
+      "filename": "geminiModelOverviewAndVariants.txt",
+      "description": "Overview of Gemini API models and their variants (Pro, Flash, Flash-Lite, Live, Native Audio, TTS) optimized for different use cases, including stable, preview, and experimental versions",
+      "keywords": ["Gemini models", "model variants", "Pro", "Flash", "Flash-Lite", "Live", "Native Audio", "TTS", "stable", "preview", "experimental"],
+      "topics": ["model selection", "API models", "model capabilities"]
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/video-understanding",
+      "filename": "geminiVideoUnderstandingAndProcessing.txt",
+      "description": "Processing video input with Gemini models for summarization, information extraction, and visual descriptions, including YouTube URL support and custom processing options",
+      "keywords": ["video understanding", "video processing", "YouTube", "timestamps", "transcription", "visual descriptions", "clipping intervals", "frame rate"],
+      "topics": ["video input", "multimodal prompting", "video analysis"]
+    }
+  ]
+}

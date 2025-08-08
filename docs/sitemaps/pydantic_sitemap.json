@@ -1,0 +1,102 @@
+{
+  "entries": [
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/pydantic_settings/",
+      "filename": "pydanticSettingsBaseSettingsEnvVars.txt",
+      "description": "BaseSettings class for managing application configuration through environment variables, .env files, and CLI arguments",
+      "keywords": ["BaseSettings", "environment variables", "configuration", "CLI", "dotenv"],
+      "topics": ["configuration management", "environment setup", "secrets handling"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/json/",
+      "filename": "pydanticJSONParsingAndSerialization.txt",
+      "description": "Pydantic's built-in JSON parsing and serialization, including performance improvements, strict specifications, partial parsing, and string caching",
+      "keywords": ["JSON parsing", "JSON serialization", "jiter", "partial JSON", "string caching", "model_validate_json"],
+      "topics": ["data handling", "serialization", "performance optimization"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/fields/",
+      "filename": "pydanticModelFieldsCustomization.txt",
+      "description": "Customizing Pydantic model fields with default values, JSON Schema metadata, constraints (numeric, string, decimal, dataclass), aliases, and computed fields",
+      "keywords": ["Field", "Annotated", "default values", "aliases", "constraints", "JSON Schema", "computed_field", "strict mode", "immutability", "deprecated"],
+      "topics": ["model definition", "data validation", "serialization", "field customization"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/type_adapter/",
+      "filename": "pydanticTypeAdapterForValidationSerialization.txt",
+      "description": "Using Pydantic's TypeAdapter for type validation, serialization, and JSON schema generation for non-BaseModel types like dataclasses and primitive types",
+      "keywords": ["TypeAdapter", "type validation", "serialization", "JSON schema generation", "dataclasses", "primitive types"],
+      "topics": ["data validation", "type hinting", "schema generation"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/api/base_model/",
+      "filename": "pydanticBaseModelOverview.txt",
+      "description": "Overview of Pydantic's BaseModel class for creating data models, including attributes, methods for validation, copying, dumping, and JSON schema generation",
+      "keywords": ["BaseModel", "data models", "validation", "serialization", "model_dump", "model_json_schema", "model_validate"],
+      "topics": ["model definition", "data validation", "data serialization"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/pydantic_settings/",
+      "filename": "pydanticSettingsManagementAndSources.txt",
+      "description": "Comprehensive guide to Pydantic Settings for managing application configuration, including environment variables, .env files, CLI support, and integration with secret management services like AWS Secrets Manager, Azure Key Vault, and Google Cloud Secret Manager",
+      "keywords": ["Pydantic Settings", "BaseSettings", "configuration management", "environment variables", "dotenv", "CLI", "secrets", "AWS Secrets Manager", "Azure Key Vault", "Google Cloud Secret Manager"],
+      "topics": ["application configuration", "environment setup", "secret management", "CLI integration"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/serialization/",
+      "filename": "pydanticModelSerializationAndDumping.txt",
+      "description": "Converting Pydantic models to dictionaries or JSON, including `model_dump`, `model_dump_json`, custom serializers, and handling subclasses and duck-typing serialization",
+      "keywords": ["serialization", "dumping", "model_dump", "model_dump_json", "custom serializers", "duck-typing", "JSON serialization"],
+      "topics": ["data transformation", "model output", "JSON conversion"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/",
+      "filename": "pydanticOverviewAndKeyFeatures.txt",
+      "description": "Overview of Pydantic, the most widely used data validation library for Python, highlighting its features like type hint integration, speed, JSON Schema generation, strict/lax modes, customizability, and ecosystem",
+      "keywords": ["Pydantic", "data validation", "type hints", "speed", "JSON Schema", "strict mode", "lax mode", "customization", "ecosystem"],
+      "topics": ["data modeling", "validation", "Python library"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/config/",
+      "filename": "pydanticModelConfigurationOptions.txt",
+      "description": "Controlling Pydantic model behavior through configuration options on BaseModel, dataclasses, TypeAdapter, and other types, including global and merged configurations",
+      "keywords": ["ConfigDict", "model_config", "configuration", "dataclasses", "TypeAdapter", "global configuration", "merged configuration"],
+      "topics": ["model customization", "behavior control", "configuration management"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/validation_decorator/",
+      "filename": "pydanticValidationDecoratorForFunctions.txt",
+      "description": "Using Pydantic's `validate_call` decorator to parse and validate function arguments and return values based on type annotations, supporting various parameter types and custom configurations",
+      "keywords": ["validate_call", "decorator", "function validation", "argument parsing", "return value validation", "type annotations", "Field"],
+      "topics": ["data validation", "function decorators", "type checking"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/dataclasses/",
+      "filename": "pydanticDataclassesAndValidation.txt",
+      "description": "Using Pydantic's `@dataclass` decorator for data validation on standard Python dataclasses, including configuration, field customization, and integration with BaseModel and TypeAdapter",
+      "keywords": ["dataclasses", "Pydantic dataclasses", "validation", "Field", "TypeAdapter", "configuration", "validators", "__post_init__"],
+      "topics": ["data modeling", "data validation", "Python features"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/validators/",
+      "filename": "pydanticCustomValidatorsAndValidationInfo.txt",
+      "description": "Implementing custom field and model validators in Pydantic using `@field_validator` and `@model_validator` decorators, including `BeforeValidator`, `AfterValidator`, `PlainValidator`, `WrapValidator`, and `ValidationInfo`",
+      "keywords": ["validators", "field validators", "model validators", "BeforeValidator", "AfterValidator", "PlainValidator", "WrapValidator", "ValidationInfo", "custom validation"],
+      "topics": ["data validation", "data integrity", "custom logic"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/types/",
+      "filename": "pydanticSupportedTypesAndCustomization.txt",
+      "description": "Overview of Pydantic's supported types (standard library, strict, custom data types) and how to customize them using `Annotated`, named type aliases, and `__get_pydantic_core_schema__` for advanced validation and serialization",
+      "keywords": ["types", "standard library types", "strict types", "custom data types", "Annotated", "type aliases", "__get_pydantic_core_schema__", "type conversion"],
+      "topics": ["type hinting", "data validation", "custom types", "schema generation"]
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/models/",
+      "filename": "pydanticModelsOverviewAndUsage.txt",
+      "description": "Defining Pydantic models with `BaseModel` for schema definition, data validation, serialization, and JSON schema generation, including data conversion, extra data handling, nested models, generic models, and dynamic model creation",
+      "keywords": ["models", "BaseModel", "schema definition", "data validation", "serialization", "JSON schema", "data conversion", "extra data", "nested models", "generic models", "create_model"],
+      "topics": ["data modeling", "API design", "data integrity"]
+    }
+  ]
+}
