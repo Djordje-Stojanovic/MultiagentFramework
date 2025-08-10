@@ -5,8 +5,15 @@ Keeps main file under 200 LOC limit per Elon's efficiency algorithm
 
 from fastapi import WebSocket, WebSocketDisconnect
 import json
-from pydantic_ai import Agent
+from pydantic_ai import Agent, RunContext
 from pydantic_ai.settings import ModelSettings
+from dataclasses import dataclass
+from typing import List
+
+
+@dataclass
+class Deps:
+    system_prompt: str
 
 
 async def handle_websocket_stream(websocket: WebSocket, create_agent_func):
@@ -34,23 +41,24 @@ async def handle_websocket_stream(websocket: WebSocket, create_agent_func):
                 }))
                 continue
             
-            # Update conversation history from client if provided
-            if history:
-                conversation_history = history
-            
             # Extract config parameters with defaults
-            model = config.get("model", "gemini-2.0-flash-exp")
+            model = config.get("model", "gemini-2.5-flash")
             temperature = config.get("temperature", 0.7)
             top_p = config.get("top_p", 0.9)
             top_k = config.get("top_k", 40)
             max_tokens = config.get("max_tokens", 1024)
+            system_prompt = config.get("system_prompt", "").strip()
+            
+            # Prepare system prompt for dynamic injection
+            if system_prompt:
+                base_prompt = "You are a helpful AI assistant."
+                effective_prompt = f"{base_prompt}\n\n{system_prompt}".strip()
+            else:
+                effective_prompt = "You are a helpful AI assistant."
             
             if message_type == "prompt":
-                # Single agent streaming with conversation context
-                primary_agent = create_agent_func(
-                    model=model,
-                    system_prompt="You are a helpful AI assistant engaging in natural conversation."
-                )
+                # Single agent streaming with proper message history
+                primary_agent = create_agent_func(model=model)  # No hardcoded system_prompt
                 agent_name = "primary"
                 
                 # Create ModelSettings with user configuration (top_k not available in Pydantic AI)
@@ -65,16 +73,14 @@ async def handle_websocket_stream(websocket: WebSocket, create_agent_func):
                     "agent": agent_name
                 }))
                 
-                # Build context-aware prompt
-                if conversation_history:
-                    context_prompt = f"""Conversation history:
-{chr(10).join([f"{msg['role']}: {msg['content']}" for msg in conversation_history[-10:]])}
-
-User: {content}"""
-                else:
-                    context_prompt = content
-                
-                async with primary_agent.run_stream(context_prompt, model_settings=model_settings) as result:
+                # Use dynamic system prompt via deps
+                deps = Deps(system_prompt=effective_prompt)
+                async with primary_agent.run_stream(
+                    content, 
+                    model_settings=model_settings,
+                    deps=deps,
+                    message_history=[]  # Start fresh for now
+                ) as result:
                     agent_response = ""
                     async for chunk in result.stream_text(delta=True, debounce_by=None):
                         agent_response += chunk
@@ -84,6 +90,7 @@ User: {content}"""
                             "agent": agent_name
                         }))
                     
+                    # Store conversation history
                     conversation_history.append({"role": "User", "content": content})
                     conversation_history.append({"role": "Agent", "content": agent_response})
                 

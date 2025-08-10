@@ -176,6 +176,7 @@ When working on this project:
 1. **Read this file first** to understand available capabilities
 2. **Commit changes** regularly with meaningful commit messages
 3. **Push to GitHub** to maintain remote backup and collaboration
+4. **If you don't know something or are unsure about something, ask the user**
 
 ## Development Guidelines
 - Follow semantic versioning for releases

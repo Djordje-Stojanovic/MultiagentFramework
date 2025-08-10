@@ -18,12 +18,21 @@ load_dotenv()
 
 app = FastAPI(title="MultiAgent Framework")
 
-def create_agent(model: str, system_prompt: str) -> Agent:
+def create_agent(model: str, system_prompt: str = None) -> Agent:
     """Create a dynamically configured agent (ModelSettings applied per-request)"""
-    return Agent(
-        model,
-        system_prompt=system_prompt
-    )
+    from streaming import Deps
+    
+    if system_prompt:
+        return Agent(model, system_prompt=system_prompt)
+    else:
+        # Create agent with dynamic system prompt support
+        agent = Agent(model, deps_type=Deps)
+        
+        @agent.system_prompt
+        def dynamic_system_prompt(ctx) -> str:
+            return ctx.deps.system_prompt
+        
+        return agent
 
 @app.get("/", response_class=HTMLResponse)
 async def root():

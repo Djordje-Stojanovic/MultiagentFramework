@@ -34,10 +34,9 @@ def get_html_interface():
                 <div class="config-item">
                     <strong>Model:</strong>
                     <select id="modelSelector" onchange="updateModelDisplay()">
-                        <option value="gemini-2.0-flash-exp" selected>gemini-2.0-flash-exp</option>
+                        <option value="gemini-2.5-flash" selected>gemini-2.5-flash</option>
                         <option value="gemini-2.5-pro-max-thinking">gemini-2.5-pro-max-thinking</option>
                         <option value="gemini-2.5-pro">gemini-2.5-pro</option>
-                        <option value="gemini-2.5-flash">gemini-2.5-flash</option>
                         <option value="gemini-2.5-flash-lite">gemini-2.5-flash-lite</option>
                     </select>
                 </div>
@@ -55,11 +54,11 @@ def get_html_interface():
             <div class="params-grid">
                 <div class="param-item">
                     <label for="temperature">Temperature: <span id="tempValue">0.7</span></label>
-                    <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7" oninput="updateParamDisplay('temperature', 'tempValue')">
+                    <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7" oninput="updateParamDisplay('temperature', 'tempValue')">
                 </div>
                 <div class="param-item">
                     <label for="topP">Top-P: <span id="topPValue">0.9</span></label>
-                    <input type="range" id="topP" min="0" max="1" step="0.1" value="0.9" oninput="updateParamDisplay('topP', 'topPValue')">
+                    <input type="range" id="topP" min="0" max="1" step="0.05" value="0.9" oninput="updateParamDisplay('topP', 'topPValue')">
                 </div>
                 <div class="param-item">
                     <label for="topK">Top-K: <span id="topKValue">40</span></label>
@@ -67,8 +66,13 @@ def get_html_interface():
                 </div>
                 <div class="param-item">
                     <label for="maxTokens">Max Tokens: </label>
-                    <input type="number" id="maxTokens" min="1" max="8192" value="1024">
+                    <input type="number" id="maxTokens" min="1" max="65535" value="768">
                 </div>
+            </div>
+            
+            <div class="system-prompt-section">
+                <h4>System Prompt (Optional)</h4>
+                <textarea id="systemPrompt" placeholder="Enter custom instructions for the agent(s). This will guide how they respond and behave during conversations and debates."></textarea>
             </div>
         </div>
         
@@ -180,7 +184,8 @@ def get_html_interface():
                 temperature: parseFloat(document.getElementById('temperature').value),
                 top_p: parseFloat(document.getElementById('topP').value),
                 top_k: parseInt(document.getElementById('topK').value),
-                max_tokens: parseInt(document.getElementById('maxTokens').value)
+                max_tokens: parseInt(document.getElementById('maxTokens').value),
+                system_prompt: document.getElementById('systemPrompt').value.trim()
             };
         }
         

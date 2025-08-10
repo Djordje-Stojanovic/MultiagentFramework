@@ -22,6 +22,20 @@ def get_css():
         }
         button:hover { background: #2a2a2a; }
         button.active { background: #2d7a2d; border-color: #2d7a2d; color: white; }
+        #chatMode.active { 
+            background: linear-gradient(135deg, #4361ee, #3a0ca3); 
+            border-color: #4361ee; 
+        }
+        #debateMode.active { 
+            background: linear-gradient(135deg, #e63946, #d90429); 
+            border-color: #e63946; 
+            animation: pulse 2s infinite; 
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(230, 57, 70, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+        }
         .chat-container {
             background: #1a1a1a; border-radius: 12px; padding: 20px;
             margin-bottom: 20px; min-height: 400px; border: 1px solid #333;
@@ -60,6 +74,18 @@ def get_css():
         .param-item label {
             color: #e0e0e0; font-size: 14px; font-weight: 500;
         }
+        .system-prompt-section {
+            margin-top: 20px; padding-top: 20px; border-top: 1px solid #333;
+        }
+        .system-prompt-section h4 {
+            color: #e0e0e0; margin-bottom: 10px; font-size: 16px; font-weight: 500;
+        }
+        textarea {
+            width: 100%; background: #222; color: #e0e0e0; border: 1px solid #444;
+            padding: 12px; border-radius: 6px; font-size: 14px; resize: vertical;
+            min-height: 80px; font-family: inherit;
+        }
+        textarea:focus { outline: none; border-color: #2d7a2d; }
         select {
             background: #222; color: #e0e0e0; border: 1px solid #444;
             padding: 8px; border-radius: 6px; font-size: 14px;
