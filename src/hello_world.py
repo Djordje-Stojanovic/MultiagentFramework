@@ -8,6 +8,7 @@ import os
 from fastapi import FastAPI, WebSocket
 from fastapi.responses import HTMLResponse
 from pydantic_ai import Agent
+from pydantic_ai.settings import ModelSettings
 from dotenv import load_dotenv
 from streaming import handle_websocket_stream
 from ui import get_html_interface
@@ -17,21 +18,12 @@ load_dotenv()
 
 app = FastAPI(title="MultiAgent Framework")
 
-# Initialize agents - generic configuration
-AGENTS = {
-    'primary': Agent(
-        'gemini-2.0-flash-exp',
-        system_prompt="You are a helpful AI assistant engaging in natural conversation.",
-    ),
-    'first': Agent(
-        'gemini-2.0-flash-exp', 
-        system_prompt="You start discussions thoughtfully and present initial viewpoints.",
-    ),
-    'second': Agent(
-        'gemini-2.0-flash-exp',
-        system_prompt="You provide thoughtful counter-arguments and alternative perspectives.",
+def create_agent(model: str, system_prompt: str) -> Agent:
+    """Create a dynamically configured agent (ModelSettings applied per-request)"""
+    return Agent(
+        model,
+        system_prompt=system_prompt
     )
-}
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
@@ -41,7 +33,7 @@ async def root():
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     """WebSocket endpoint for streaming"""
-    await handle_websocket_stream(websocket, AGENTS)
+    await handle_websocket_stream(websocket, create_agent)
 
 if __name__ == "__main__":
     import uvicorn

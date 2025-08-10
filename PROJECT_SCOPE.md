@@ -14,6 +14,12 @@ Building a multi-agent debate system, step by step.
 - **Documentation:** Trafilatura (offline, forever-free scraping)
 - **MCP Servers:** GitHub only (for code management)
 
+## Core Design Philosophy
+- **Multi-Model by Design**: Never lock into a single LLM provider. Code must work with OpenAI, Anthropic, Google, OpenRouter, and any future providers.
+- **Pydantic AI as Abstraction**: Our abstraction layer handles all model providers uniformly - streaming, async, sync all work the same regardless of underlying model.
+- **Model Agnostic Architecture**: Agent definitions, streaming, and all functionality must work identically across GPT-4, Claude, Gemini, or any model we add.
+- **Dark Mode Only**: The modern, professional standard for AI applications. No light mode elements.
+
 ## Platform Decision ✅
 **Chosen: Web app with FastAPI + simple HTML**
 - Start simple, iterate fast
@@ -75,6 +81,69 @@ MultiagentFramework/
    - ✅ Real-time debate visualization with clear agent roles
    - ✅ Tested with complex topics (WW2 Germany performance debate)
 9. ⬜ **NEXT:** Improve UI design and user experience
+9.1. ✅ **COMPLETED:** Implement dark mode only philosophy
+   - ✅ Converted entire UI to beautiful, modern dark mode
+   - ✅ Removed all light mode elements
+   - ✅ Following dark mode as the professional standard for AI applications
+   - ✅ Added dark mode philosophy to Cline.md development guidelines
+9.2. ✅ **COMPLETED:** Implement Live Token Streaming
+   - ✅ Fixed Pydantic AI streaming with proper `async with agent.run_stream()` syntax
+   - ✅ Real-time token streaming for both Chat and Debate modes
+   - ✅ Conversation memory - agents remember previous messages in context
+   - ✅ Generic agent architecture - no hardcoded "Agent 1/2" references
+   - ✅ Applied Elon's algorithm: Split bloated files following 200 LOC limit
+     - `hello_world.py`: 41 lines (main FastAPI app)
+     - `streaming.py`: 149 lines (WebSocket streaming logic)
+     - `ui.py`: 178 lines (HTML/JS interface)
+     - `styles.py`: 46 lines (CSS styling)
+   - ✅ Small surgical changes only - no feature bloat, modular architecture
+   - ✅ **CRITICAL BUGS FIXED:**
+     - Fixed f-string syntax error with JavaScript template literals
+     - Restored model configuration panel (was removed during refactoring)
+     - Fixed WebSocket duplicate ID bug with unique timestamps
+     - Proper DOM cleanup to prevent streaming element conflicts
+     - Used Python VSCode extension for better error detection
+   - ✅ **USER TESTED:** Live streaming working perfectly with conversation memory
+
+9.3. ✅ **COMPLETED:** Critical Production Issues Resolved
+   - ✅ **Fixed Pydantic AI Configuration Error**: Resolved `Unknown keyword arguments: model_kwargs` by implementing proper `ModelSettings` approach
+     - Replaced invalid `model_kwargs` parameter with correct `ModelSettings(temperature, top_p, max_tokens)`
+     - Applied settings per-request using `agent.run_stream(prompt, model_settings=model_settings)`
+     - Note: `top_k` parameter not available in Pydantic AI (only top_p supported)
+   - ✅ **Fixed WebSocket Memory Loss**: Resolved frequent disconnections causing conversation history reset
+     - Removed `ws.close()` that was causing disconnections on every message
+     - Implemented persistent WebSocket connection with auto-reconnect logic
+     - Added `isStreaming` flag to prevent multiple simultaneous requests
+     - **Verified**: Conversation memory now works perfectly (agents remember context across messages)
+   - ✅ **WebSocket Behavior Research**: Confirmed logging patterns are normal and healthy
+     - Used Google AI research to verify open/close cycles are standard FastAPI/Uvicorn lifecycle events
+     - Confirmed application follows 2024-2025 WebSocket best practices for chat applications
+     - No actual performance issues or connectivity problems detected
+   - ✅ **Enhanced Debugging**: Added WebSocket close code logging to distinguish normal vs problematic disconnections
+     - Logs close codes with normal (1000/1001) vs abnormal (1006/1002/1011) classification
+     - Improved error handling with connection state checks
+     - Better diagnostic information for future troubleshooting
+
+## Phase 10: Future Enhancement Opportunities
+
+10.1. **SUGGESTED:** Enhanced Agent Personalities & Custom Instructions
+   - Add configurable agent personalities (analytical, creative, contrarian, etc.)
+   - Custom system prompts per agent for specialized roles
+   - Agent memory persistence across sessions
+   - Pre-built agent templates (researcher, critic, optimist, etc.)
+
+10.2. **SUGGESTED:** Multi-Model Support & Model Comparison
+   - Support multiple LLM providers (OpenAI, Anthropic, local models)
+   - Side-by-side model comparison in debates
+   - Model switching during conversations
+   - Performance metrics and response quality comparison
+
+10.3. **SUGGESTED:** Advanced Conversation Features
+   - Export conversations to markdown/PDF
+   - Conversation branching (save/load conversation states)
+   - Topic summarization after long discussions
+   - Search through conversation history
+   - Conversation templates for specific use cases
 10. ⬜ Add debate logic and winner selection
 
 ## What We're Building (MVP)
@@ -103,4 +172,4 @@ MultiagentFramework/
   - Tested with sophisticated topics and complex reasoning
 
 ---
-*Updated: January 9, 2025 - 1:07 AM*
+*Updated: August 10, 2025 - 11:32 AM - Added Pydantic AI fixes and WebSocket debugging enhancements*

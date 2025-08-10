@@ -69,6 +69,9 @@ Store all scraped docs in `docs/` folder. No bloat, no APIs, just works.
 - Clean up resources
 - Validate inputs
 
+### Design Philosophy
+- Dark mode is the only mode we develop for - it's the modern, professional standard for AI applications.
+
 ### Performance
 - Lazy load components
 - Optimize queries using proper indexes

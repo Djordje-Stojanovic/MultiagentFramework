@@ -50,4 +50,37 @@ def get_css():
             background: #222; padding: 10px; border-radius: 6px;
             border-left: 4px solid #2d7a2d;
         }
+        .params-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 15px; margin-top: 15px;
+        }
+        .param-item {
+            display: flex; flex-direction: column; gap: 5px;
+        }
+        .param-item label {
+            color: #e0e0e0; font-size: 14px; font-weight: 500;
+        }
+        select {
+            background: #222; color: #e0e0e0; border: 1px solid #444;
+            padding: 8px; border-radius: 6px; font-size: 14px;
+        }
+        select:focus { outline: none; border-color: #2d7a2d; }
+        input[type="range"] {
+            background: #333; border-radius: 6px; height: 6px;
+            outline: none; opacity: 0.7; transition: opacity 0.2s;
+        }
+        input[type="range"]:hover { opacity: 1; }
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none; width: 18px; height: 18px; border-radius: 50%;
+            background: #2d7a2d; cursor: pointer;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 18px; height: 18px; border-radius: 50%;
+            background: #2d7a2d; cursor: pointer; border: none;
+        }
+        input[type="number"] {
+            background: #222; color: #e0e0e0; border: 1px solid #444;
+            padding: 8px; border-radius: 6px; font-size: 14px; width: 100%;
+        }
+        input[type="number"]:focus { outline: none; border-color: #2d7a2d; }
     """
